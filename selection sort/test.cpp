@@ -5,6 +5,9 @@
 /*
  * Danilo Araujo Silva
  *
+ * OBS : o teste de cada tamanho foi realizado 5 vezes, e o valor em segundos
+ * é o valor da média do tempo dos testes de cada tamanho.
+ *
  * Ordenação de vet[10] = 0.001 segundos
  *
  * Ordenação de vet[100] = 0.005 segundos
