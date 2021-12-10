@@ -42,7 +42,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define TAM 100000 // Definicao manual do número de vetores
+#define TAM 100 // Definicao manual do número de vetores
 
 void fInsertion_Sort(int *pontVetor);
 
