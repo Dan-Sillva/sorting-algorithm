@@ -80,7 +80,7 @@ void fInsertion_Sort(int *pontVetor)
 
     for (aux=1; aux < TAM; aux++) 
     {
-        aux2 = aux;
+        temp = aux;
 
         while (pontVetor[temp] < pontVetor[temp-1])
         { 
