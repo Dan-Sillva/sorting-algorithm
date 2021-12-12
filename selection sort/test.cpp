@@ -20,7 +20,7 @@
  * de 100000 posicoes;
 */
 
-int TAM = 10; //variavel de controle do tamanho do vetor
+int TAM = 100; //variavel de controle do tamanho do vetor
 
 using namespace std;
 
@@ -44,7 +44,7 @@ int main()
     fill_vector(TAM, tamanho_vetor, vet);
     selection_sort(tamanho_vetor, 0, vet);
 
-    // print_vector(tamanho_vetor, vet);
+    print_vector(tamanho_vetor, vet);
 
     time = clock() - time;
 
