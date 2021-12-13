@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include <time.h>
+
 
 /* PROTÓTIPOS */
 
@@ -9,23 +11,34 @@
 void Merge(int *A, int *E, int esqCount, int *D, int dirCount);
 
 // Função recursiva para ordenar um array de inteiros
-void MergeSort(int *A, int n);
+void MergeSort(int *A, int numeroElementos);
 
 
 /* ONDE A MÁGICA ACONTECE */
 
 int main() {
 
-	int A[] = {7,3,4,2,10,11,16,14,13,18}; // criando um array com inteiros
+	int tamanho_vetor = 100; 
+	int A[tamanho_vetor]; 
 	int i, numeroElementos;
 
-   // encontrando o numero de elementos - tamanho do array inteiro em bytes dividido pelo tamanho de um elemento inteiro em bytes
+	clock_t tempo_execucao = clock();
+
 	numeroElementos = sizeof(A)/sizeof(A[0]); 
 
 	MergeSort(A, numeroElementos);
 
    // mostrando os elementos após ordenação
-	for(i = 0; i < numeroElementos; i++) printf("%d ", A[i]);
+	for(i = 0; i < numeroElementos; i++){
+		printf("%d ", A[i]);
+	}
+
+	// calculando tempo necessário para a execução do algoritmo
+	tempo_execucao = clock() - tempo_execucao;
+
+    printf("\n\nOrdenacao de vetor de %d posicoes;\n", tamanho_vetor);
+	printf("\n\nTempo de execucao : %.7f segundos", ((double)tempo_execucao) / ((CLOCKS_PER_SEC)));
+
 	return 0;
 }
 
@@ -46,30 +59,33 @@ void Merge(int *A, int *E, int esqCount, int *D, int dirCount) {
 		if(E[index_esq]  < D[index_dir]) A[index_a++] = E[index_esq++];
 		else A[index_a++] = D[index_dir++];
 	}
+
 	while(index_esq < esqCount) A[index_a++] = E[index_esq++];
 	while(index_dir < dirCount) A[index_a++] = D[index_dir++];
 }
 
 
-void MergeSort(int *A, int n) {
+void MergeSort(int *A, int numeroElementos) {
 	int meio, *E, *D, i;
-	if(n < 2) return; // Se o array tiver menos de dois elementos, não acontece nada
+	if(numeroElementos < 2) return; // Se o array tiver menos de dois elementos, não acontece nada
 
-	meio = n/2;  // encontrar o index do meio
+	meio = numeroElementos/2;
 	
+
    // cria arrays da esquerda e direita
    // elementos do index 0 até meio-1 farão parte do array da esquerda
    // e elementos do meio até n-1 farão parte do array da direita
-
 	E = (int*)malloc(meio*sizeof(int)); 
-	D = (int*)malloc((n- meio)*sizeof(int)); 
+	D = (int*)malloc((numeroElementos - meio)*sizeof(int)); 
 	
+
 	for(i = 0; i < meio; i++) E[i] = A[i]; // cria o subarray da esquerda
-	for(i = meio; i < n; i++) D[i-meio] = A[i]; // cria o subarray da esquerda
+	for(i = meio; i < numeroElementos; i++) D[i-meio] = A[i]; // cria o subarray da esquerda
+
 
 	MergeSort(E, meio);  // ordenando subarray da esquerda
-	MergeSort(D, n-meio);  // ordenando subarray da direita
-	Merge(A, E, meio, D, n-meio);  // Fazendo o Merge de E e D em A, como uma lista ordenada
+	MergeSort(D, numeroElementos -meio);  // ordenando subarray da direita
+	Merge(A, E, meio, D, numeroElementos - meio);  // Fazendo o Merge de E e D em A, como uma lista ordenada
         free(E);
         free(D);
 }
