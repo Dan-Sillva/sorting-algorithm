@@ -52,7 +52,7 @@ void Merge(int *A, int *E, int esqCount, int *D, int dirCount) {
 
 
 void MergeSort(int *A, int n) {
-	int meio, *E, *D;
+	int meio, *E, *D, i;
 	if(n < 2) return; // Se o array tiver menos de dois elementos, não acontece nada
 
 	meio = n/2;  // encontrar o index do meio
@@ -64,8 +64,8 @@ void MergeSort(int *A, int n) {
 	E = (int*)malloc(meio*sizeof(int)); 
 	D = (int*)malloc((n- meio)*sizeof(int)); 
 	
-	for(int i = 0; i < meio; i++) E[i] = A[i]; // cria o subarray da esquerda
-	for(int i = meio; i < n; i++) D[i-meio] = A[i]; // cria o subarray da esquerda
+	for(i = 0; i < meio; i++) E[i] = A[i]; // cria o subarray da esquerda
+	for(i = meio; i < n; i++) D[i-meio] = A[i]; // cria o subarray da esquerda
 
 	MergeSort(E, meio);  // ordenando subarray da esquerda
 	MergeSort(D, n-meio);  // ordenando subarray da direita
