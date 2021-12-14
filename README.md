@@ -6,7 +6,7 @@ Projeto criado em cima da atividade do professor Alexandre Tannus, sobre algorit
 ### Integrantes do trabalho :
 - Danilo Araujo Silva - 2011454
 - Eduardo Marconi Araujo Silva - 2011411
-- José Antônio de Andrade Siqueira
+- José Antônio de Andrade Siqueira - 2010072
 - Ana Karen Soares Fonseca - 2011143
 ---
 
@@ -16,5 +16,5 @@ Project created based on the activity of instructor Alexandre Tannus, about sort
 ### Work members :
 - Danilo Araujo Silva - 2011454
 - Eduardo Marconi Araujo Silva - 2011411
-- José Antônio de Andrade Siqueira 
+- José Antônio de Andrade Siqueira - 2010072
 - Ana Karen Soares Fonseca - 2011143
